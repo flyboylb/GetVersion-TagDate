@@ -9302,14 +9302,10 @@ async function run() {
 run();
 
 async function getCurrentTag() {
-    await exec("git fetch --tags");
-    let current = await execGetOutput(`git describe --tags --abbrev=0`);
+    await exec("git fetch --tags");  
     // First Check if there is already a release tag at the head...
     let currentTags = await execGetOutput(`git tag --points-at ${context.sha}`);
-    
-    console.log(
-        `Current version ${current}`
-    );
+        
     return currentTags.map(processVersion).filter(Boolean)[0];
 }
 
