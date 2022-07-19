@@ -1,0 +1,19 @@
+name: action-tag-date-version-prerelease
+
+on:
+  push:
+    branches:
+      - prerelease
+
+jobs:
+  tag-version:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: action-tag-date-version
+        uses: ./ # Uses an action in the root directory
+        id: action-tag-date-version
+        with:
+          prerelease: beta

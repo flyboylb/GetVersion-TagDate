@@ -1,0 +1,18 @@
+name: "action-tag-date-version"
+description: "Automatically add a tag with a date version"
+author: "Francesco Novy"
+branding:
+  icon: "bar-chart-2"
+  color: "orange"
+runs:
+  using: "node12"
+  main: "index.js"
+inputs:
+  buildtagprefix:  # id of input
+    description: 'The solution being built (Dashboard.Server or Dashboard.Web)'
+    required: true
+    default: 'Dashboard.Server'
+ 
+outputs:
+  version: # id of output
+    description: 'The version'

@@ -1,0 +1,18 @@
+name: action-tag-date-version
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  tag-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: action-tag-date-version
+        uses: ./ # Uses an action in the root directory
+        id: action-tag-date-version
+      - name: Use output
+        run: echo ${{steps.action-tag-date-version.outputs.version}}
