@@ -9303,10 +9303,10 @@ run();
 
 async function getCurrentTag() {
     await exec("git fetch --tags");
-
+    let current = await execGetOutput(`git describe --tags --abbrev=0`);
     // First Check if there is already a release tag at the head...
     let currentTags = await execGetOutput(`git tag --points-at ${context.sha}`);
-    let current = await execGetOutput(`git describe --tags --abbrev=0`);
+    
     console.log(
         `Current version ${current}`
     );
