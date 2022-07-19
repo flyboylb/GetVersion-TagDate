@@ -6,7 +6,7 @@ branding:
   color: "orange"
 runs:
   using: "node12"
-  main: "index.js"
+  main: "dist/index.js"
 inputs:
   buildtagprefix:  # id of input
     description: 'The solution being built (Dashboard.Server or Dashboard.Web)'
